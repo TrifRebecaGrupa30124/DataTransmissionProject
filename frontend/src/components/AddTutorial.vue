@@ -2,7 +2,7 @@
   <div class="submit-form">
     <div v-if="!submitted">
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title">Name</label>
         <input
           type="text"
           class="form-control"
@@ -24,7 +24,7 @@
         />
       </div>
 
-      <button @click="saveTutorial" class="btn btn-success">Submit</button>
+      <button @click="saveTutorial" class="btn" style="background-color: pink">Submit</button>
     </div>
 
     <div v-else>

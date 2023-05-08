@@ -3,4 +3,7 @@ export default interface Tutorial {
   title: string;
   description: string;
   published: boolean;
+  price: null;
+  UnitInStock:null;
+  ProductAvailable:boolean;
 }

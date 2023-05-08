@@ -8,7 +8,17 @@ module.exports = (sequelize, Sequelize) => {
     },
     published: {
       type: Sequelize.BOOLEAN
+    },
+    price: {
+      type: Sequelize.NUMERIC
+    },
+    UnitInStock: {
+      type: Sequelize.NUMERIC
+    },
+    ProductAvailable:{
+      type:Sequelize.BOOLEAN
     }
+
   });
 
   return Tutorial;

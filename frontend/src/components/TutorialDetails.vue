@@ -3,7 +3,7 @@
     <h4>Tutorial</h4>
     <form>
       <div class="form-group">
-        <label for="title">Title</label>
+        <label for="title">Name</label>
         <input
           type="text"
           class="form-control"
