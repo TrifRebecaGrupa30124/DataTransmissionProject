@@ -1,6 +1,6 @@
 <template>
-  <div v-if="currentTutorial.id" class="edit-form">
-    <h4>Tutorial</h4>
+  <div v-if="currentProduct.id" class="edit-form">
+    <h4>Product</h4>
     <form>
       <div class="form-group">
         <label for="title">Name</label>
@@ -8,7 +8,7 @@
           type="text"
           class="form-control"
           id="title"
-          v-model="currentTutorial.title"
+          v-model="currentProduct.title"
         />
       </div>
       <div class="form-group">
@@ -17,19 +17,19 @@
           type="text"
           class="form-control"
           id="description"
-          v-model="currentTutorial.description"
+          v-model="currentProduct.description"
         />
       </div>
 
       <div class="form-group">
         <label><strong>Status:</strong></label>
-        {{ currentTutorial.published ? "Published" : "Pending" }}
+        {{ currentProduct.published ? "Published" : "Pending" }}
       </div>
     </form>
 
     <button
       class="badge badge-primary mr-2"
-      v-if="currentTutorial.published"
+      v-if="currentProduct.published"
       @click="updatePublished(false)"
     >
       UnPublish
@@ -42,11 +42,11 @@
       Publish
     </button>
 
-    <button class="badge badge-danger mr-2" @click="deleteTutorial">
+    <button class="badge badge-danger mr-2" @click="deleteProduct">
       Delete
     </button>
 
-    <button type="submit" class="badge badge-success" @click="updateTutorial">
+    <button type="submit" class="badge badge-success" @click="updateProduct">
       Update
     </button>
     <p>{{ message }}</p>
@@ -54,29 +54,29 @@
 
   <div v-else>
     <br />
-    <p>Please click on a Tutorial...</p>
+    <p>Please click on a product...</p>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import TutorialDataService from "@/services/TutorialDataService";
-import Tutorial from "@/types/Tutorial";
+import ProductDataService from "@/services/ProductDataService";
+import Product from "@/types/Product";
 import ResponseData from "@/types/ResponseData";
 
 export default defineComponent({
-  name: "tutorial",
+  name: "product",
   data() {
     return {
-      currentTutorial: {} as Tutorial,
+      currentProduct: {} as Product,
       message: "",
     };
   },
   methods: {
-    getTutorial(id: any) {
-      TutorialDataService.get(id)
+    getProduct(id: any) {
+      ProductDataService.get(id)
         .then((response: ResponseData) => {
-          this.currentTutorial = response.data;
+          this.currentProduct = response.data;
           console.log(response.data);
         })
         .catch((e: Error) => {
@@ -86,16 +86,16 @@ export default defineComponent({
 
     updatePublished(status: boolean) {
       let data = {
-        id: this.currentTutorial.id,
-        title: this.currentTutorial.title,
-        description: this.currentTutorial.description,
+        id: this.currentProduct.id,
+        title: this.currentProduct.title,
+        description: this.currentProduct.description,
         published: status,
       };
 
-      TutorialDataService.update(this.currentTutorial.id, data)
+      ProductDataService.update(this.currentProduct.id, data)
         .then((response: ResponseData) => {
           console.log(response.data);
-          this.currentTutorial.published = status;
+          this.currentProduct.published = status;
           this.message = "The status was updated successfully!";
         })
         .catch((e: Error) => {
@@ -103,22 +103,22 @@ export default defineComponent({
         });
     },
 
-    updateTutorial() {
-      TutorialDataService.update(this.currentTutorial.id, this.currentTutorial)
+    updateProduct() {
+      ProductDataService.update(this.currentProduct.id, this.currentProduct)
         .then((response: ResponseData) => {
           console.log(response.data);
-          this.message = "The tutorial was updated successfully!";
+          this.message = "The product was updated successfully!";
         })
         .catch((e: Error) => {
           console.log(e);
         });
     },
 
-    deleteTutorial() {
-      TutorialDataService.delete(this.currentTutorial.id)
+    deleteProduct() {
+      ProductDataService.delete(this.currentProduct.id)
         .then((response: ResponseData) => {
           console.log(response.data);
-          this.$router.push({ name: "tutorials" });
+          this.$router.push({ name: "products" });
         })
         .catch((e: Error) => {
           console.log(e);
@@ -127,7 +127,7 @@ export default defineComponent({
   },
   mounted() {
     this.message = "";
-    this.getTutorial(this.$route.params.id);
+    this.getProduct(this.$route.params.id);
   },
 });
 </script>

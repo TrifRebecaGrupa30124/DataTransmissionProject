@@ -29,9 +29,9 @@
         <tr
             class="products-table"
             :class="{ active: index == currentIndex }"
-            v-for="(tutorial, index) in tutorials"
+            v-for="(product, index) in products"
             :key="index"
-            @click="setActiveTutorial(tutorial, index)">
+            @click="setActiveProduct(product, index)">
             <thead>
             <th>Name</th>
             <th>Price</th>
@@ -42,19 +42,19 @@
             </thead>
             <tbody>
             <td>
-                {{ tutorial.title }}
+                {{ product.title }}
             </td>
             <td>
-                {{ tutorial.price }}
+                {{ product.price }}
             </td>
             <td>
-                {{ tutorial.description }}
+                {{ product.description }}
             </td>
             <td>
-                {{ tutorial.UnitInStock }}
+                {{ product.UnitInStock }}
             </td>
             <td>
-                {{ tutorial.ProductAvailable }}
+                {{ product.ProductAvailable }}
             </td>
             </tbody>
         </tr>
@@ -77,28 +77,28 @@
   <button
     class="m-3 btn btn-lg"
     style="background-color: #fde9ea"
-    @click="removeAllTutorials"
+    @click="removeAllProducts"
   >
     Remove All
   </button>
 
   <div class="col-md-6 details">
-    <div v-if="currentTutorial.id">
-      <h4>Tutorial</h4>
+    <div v-if="currentProduct.id">
+      <h4>Product</h4>
       <div>
-        <label><strong>Title:</strong></label> {{ currentTutorial.title }}
+        <label><strong>Title:</strong></label> {{ currentProduct.title }}
       </div>
       <div>
         <label><strong>Description:</strong></label>
-        {{ currentTutorial.description }}
+        {{ currentProduct.description }}
       </div>
       <div>
         <label><strong>Status:</strong></label>
-        {{ currentTutorial.published ? 'Published' : 'Pending' }}
+        {{ currentProduct.published ? 'Published' : 'Pending' }}
       </div>
 
       <router-link
-        :to="'/tutorials/' + currentTutorial.id"
+        :to="'/products/' + currentProduct.id"
         class="badge badge-warning"
         >Edit</router-link
       >
@@ -190,25 +190,25 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import TutorialDataService from '@/services/TutorialDataService';
-import Tutorial from '@/types/Tutorial';
+import ProductDataService from '@/services/ProductDataService';
+import Product from '@/types/Product';
 import ResponseData from '@/types/ResponseData';
 
 export default defineComponent({
-  name: 'tutorials-list',
+  name: 'products-list',
   data() {
     return {
-      tutorials: [] as Tutorial[],
-      currentTutorial: {} as Tutorial,
+        products: [] as Product[],
+      currentProduct: {} as Product,
       currentIndex: -1,
       title: ''
     };
   },
   methods: {
-    retrieveTutorials() {
-      TutorialDataService.getAll()
+    retrieveProducts() {
+      ProductDataService.getAll()
         .then((response: ResponseData) => {
-          this.tutorials = response.data;
+          this.products = response.data;
           console.log(response.data);
         })
         .catch((e: Error) => {
@@ -217,18 +217,18 @@ export default defineComponent({
     },
 
     refreshList() {
-      this.retrieveTutorials();
-      this.currentTutorial = {} as Tutorial;
+      this.retrieveProducts();
+      this.currentProduct = {} as Product;
       this.currentIndex = -1;
     },
 
-    setActiveTutorial(tutorial: Tutorial, index = -1) {
-      this.currentTutorial = tutorial;
+    setActiveProduct(product: Product, index = -1) {
+      this.currentProduct = product;
       this.currentIndex = index;
     },
 
-    removeAllTutorials() {
-      TutorialDataService.deleteAll()
+    removeAllProducts() {
+      ProductDataService.deleteAll()
         .then((response: ResponseData) => {
           console.log(response.data);
           this.refreshList();
@@ -239,10 +239,10 @@ export default defineComponent({
     },
 
     searchTitle() {
-      TutorialDataService.findByTitle(this.title)
+      ProductDataService.findByTitle(this.title)
         .then((response: ResponseData) => {
-          this.tutorials = response.data;
-          this.setActiveTutorial({} as Tutorial);
+          this.products = response.data;
+          this.setActiveProduct({} as Product);
           console.log(response.data);
         })
         .catch((e: Error) => {
@@ -251,7 +251,7 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.retrieveTutorials();
+    this.retrieveProducts();
   }
 });
 </script>

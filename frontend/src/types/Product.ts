@@ -1,4 +1,4 @@
-export default interface Tutorial {
+export default interface Product {
   id: null;
   title: string;
   description: string;

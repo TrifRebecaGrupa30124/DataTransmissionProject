@@ -5,7 +5,7 @@
       </router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link to="/tutorials" class="nav-link" style="font-size: 120%">Makeup Products</router-link>
+          <router-link to="/products" class="nav-link" style="font-size: 120%">Makeup Products</router-link>
         </li>
         <li class="nav-item">
           <router-link to="/add" class="nav-link" style="font-size: 120%">Add</router-link>

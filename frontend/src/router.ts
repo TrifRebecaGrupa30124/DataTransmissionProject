@@ -4,19 +4,19 @@ import { RouteRecordRaw } from "vue-router";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    alias: "/tutorials",
-    name: "tutorials",
-    component: () => import("./components/TutorialsList.vue"),
+    alias: "/products",
+    name: "products",
+    component: () => import("./components/ProductsList.vue"),
   },
   {
-    path: "/tutorials/:id",
-    name: "tutorial-details",
-    component: () => import("./components/TutorialDetails.vue"),
+    path: "/products/:id",
+    name: "product-details",
+    component: () => import("./components/ProductDetails.vue"),
   },
   {
     path: "/add",
     name: "add",
-    component: () => import("./components/AddTutorial.vue"),
+    component: () => import("./components/AddProduct.vue"),
   },
 ];
 

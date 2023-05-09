@@ -8,7 +8,7 @@
           class="form-control"
           id="title"
           required
-          v-model="tutorial.title"
+          v-model="product.title"
           name="title"
         />
       </div>
@@ -19,50 +19,50 @@
           class="form-control"
           id="description"
           required
-          v-model="tutorial.description"
+          v-model="product.description"
           name="description"
         />
       </div>
 
-      <button @click="saveTutorial" class="btn" style="background-color: pink">Submit</button>
+      <button @click="saveProduct" class="btn" style="background-color: pink">Submit</button>
     </div>
 
     <div v-else>
       <h4>You submitted successfully!</h4>
-      <button class="btn btn-success" @click="newTutorial">Add</button>
+      <button class="btn btn-success" @click="newProduct">Add</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import TutorialDataService from "@/services/TutorialDataService";
-import Tutorial from "@/types/Tutorial";
+import ProductDataService from "@/services/ProductDataService";
+import Product from "@/types/Product";
 import ResponseData from "@/types/ResponseData";
 
 export default defineComponent({
-  name: "add-tutorial",
+  name: "add-product",
   data() {
     return {
-      tutorial: {
+        product: {
         id: null,
         title: "",
         description: "",
         published: false,
-      } as Tutorial,
+      } as Product,
       submitted: false,
     };
   },
   methods: {
-    saveTutorial() {
+    saveProduct() {
       let data = {
-        title: this.tutorial.title,
-        description: this.tutorial.description,
+        title: this.product.title,
+        description: this.product.description,
       };
 
-      TutorialDataService.create(data)
+      ProductDataService.create(data)
         .then((response: ResponseData) => {
-          this.tutorial.id = response.data.id;
+          this.product.id = response.data.id;
           console.log(response.data);
           this.submitted = true;
         })
@@ -71,9 +71,9 @@ export default defineComponent({
         });
     },
 
-    newTutorial() {
+    newProduct() {
       this.submitted = false;
-      this.tutorial = {} as Tutorial;
+      this.product = {} as Product;
     },
   },
 });

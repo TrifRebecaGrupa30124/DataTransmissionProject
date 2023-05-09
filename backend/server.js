@@ -27,7 +27,7 @@ app.get("/", (req, res) => {
   res.json({ message: "api v1" });
 });
 
-require("./app/routes/turorial.routes")(app);
+require("./app/routes/product.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 4201;
