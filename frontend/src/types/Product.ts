@@ -6,4 +6,11 @@ export default interface Product {
   price: null;
   UnitInStock:null;
   ProductAvailable:boolean;
+  unitWeight:null;
+  producer: string;
+  brand:string;
+  discount: string;
+  newPrice:null;
+  summary:string;
+  shop:string;
 }

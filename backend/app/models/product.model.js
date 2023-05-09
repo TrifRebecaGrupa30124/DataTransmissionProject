@@ -17,7 +17,28 @@ module.exports = (sequelize, Sequelize) => {
     },
     ProductAvailable:{
       type:Sequelize.BOOLEAN
-    }
+    },
+    unitWeight: {
+      type: Sequelize.NUMERIC
+    },
+    producer: {
+      type: Sequelize.STRING
+    },
+    brand: {
+      type: Sequelize.STRING
+    },
+    discount: {
+      type: Sequelize.STRING
+    },
+    newPrice: {
+      type: Sequelize.NUMERIC
+    },
+    summary: {
+      type: Sequelize.STRING
+    },
+    shop: {
+      type: Sequelize.STRING
+    },
 
   });
 

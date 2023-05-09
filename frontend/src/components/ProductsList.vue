@@ -22,10 +22,94 @@
 
   <h4 style="text-align: center">Products List</h4>
 
+  <!-- Features -->
+
+    <section id="features" style="background-color: #fde9ea">
+        <div class="row">
+            <div class="col-lg-3 col-md-12 feature-1">
+                <img class="produs" src="../assets/p2c.png" />
+
+                <br /><br /><br />
+                <h3>Dior Addict</h3>
+                <p>
+                    Primul balsam de buze Dior cu o formula bazata pe 97% ingrediente** de
+                    origine naturala care amplifica discret culoarea naturala a buzelor cu
+                    o stralucire personalizata timp de 6 ore*** si hidrateaza buzele timp
+                    de 24 de ore*.
+                </p>
+                <p>🖤🖤🖤🖤🖤(5/5)</p>
+                <p>120 lei</p>
+                <a href=""
+                ><i class="fa-solid fa-heart fa-xl" style="color: #f382d5"></i
+                ></a>
+                <a href=""
+                ><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5"></i
+                ></a>
+            </div>
+            <div class="col-lg-3 col-md-12 feature-2">
+                <img class="produs1" src="../assets/p3c.png" />
+                <h3>Dior Pencil</h3>
+                <p>
+                    CE ESTE: Efectul de finisaj impecabil devine acum realitate cu acest
+                    contur de buze incredibil de ușor de aplicat.CE FACE: Alunecă cu mare
+                    ușurință, iar linia sa plină acoperă perfect buzele, mărindu-le
+                    volumul.
+                </p>
+                <br />
+                <p>🖤🖤🖤🖤🖤(5/5)</p>
+                <p>90 lei</p>
+                <a href=""
+                ><i class="fa-solid fa-heart fa-xl" style="color: #f382d5"></i
+                ></a>
+                <a href=""
+                ><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5"></i
+                ></a>
+            </div>
+            <div class="col-lg-3 col-md-12 feature-3">
+                <img class="produs2" src="../assets/p4c.png" /> <br /><br />
+                <h3>Dior Blush</h3>
+                <p>
+                    Rosy Glow universal blush este arma secreta a echipei de makeup
+                    artists Dior pentru crearea unui aspect de obraji imbujorati natural
+                    si a unui efect luminos proaspat.Confera obrajilor un efect
+                    personalizat de imbujorare.
+                </p>
+                <p>🖤🖤🖤🖤🖤(5/5)</p>
+                <p>170 lei</p>
+                <a href=""
+                ><i class="fa-solid fa-heart fa-xl" style="color: #f382d5"></i
+                ></a>
+                <a href=""
+                ><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5"></i
+                ></a>
+            </div>
+            <div class="col-lg-3 col-md-12 feature-3">
+                <img class="produs3" src="../assets/p5c.png" />
+                <h3>Dior Bronzer</h3>
+                <p>
+                    Pudra Dior Forever Natural Bronze recreeaza dintr-o singura miscare
+                    mangaierea soarelui pe piele, pentru un ten luminos, care radiaza de
+                    vitalitate.Delicata si ultralejera, textura pudrei bronzante
+                    fuzioneaza impecabil.
+                </p>
+                <p>🖤🖤🖤🖤🖤(5/5)</p>
+                <p>190 lei</p>
+                <a href=""
+                ><i class="fa-solid fa-heart fa-xl" style="color: #f382d5"></i
+                ></a>
+                <a href=""
+                ><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5"></i
+                ></a>
+            </div>
+        </div>
+    </section>
+
 
 <!--    Table-->
-
-    <table class="table-row tablee">
+<br>
+    <br>
+    <br>
+    <table class="table-row tablee" style="position: relative; margin-left: -130px">
         <tr
             class="products-table"
             :class="{ active: index == currentIndex }"
@@ -35,9 +119,19 @@
             <thead>
             <th>Name</th>
             <th>Price</th>
-            <th>Description</th>
-            <th>UnitInStock</th>
+            <th>Producer</th>
+            <th>Brand</th>
             <th>Available</th>
+            <th>UnitInStock</th>
+            <th>UnitWeight</th>
+            <th>Discount</th>
+            <th>NewPrice</th>
+            <th>Summary</th>
+            <th>Shop</th>
+            <th>Description</th>
+
+
+
 
             </thead>
             <tbody>
@@ -48,14 +142,53 @@
                 {{ product.price }}
             </td>
             <td>
-                {{ product.description }}
+                {{ product.producer }}
             </td>
             <td>
-                {{ product.UnitInStock }}
+                {{ product.brand }}
             </td>
             <td>
                 {{ product.ProductAvailable }}
             </td>
+            <td>
+                {{ product.UnitInStock }}
+            </td>
+
+            <td>
+                {{ product.unitWeight }}
+            </td>
+            <td>
+                {{ product.discount }}
+            </td>
+            <td>
+                {{ product.newPrice }}
+            </td>
+            <td>
+                {{ product.summary }}
+            </td>
+            <td>
+                {{ product.shop }}
+            </td>
+            <td>
+                {{ product.description }}
+            </td>
+            <td>
+                <button class="badge mr-2 btnDelete" @click ="deleteProduct(product.id)" >
+                    Delete
+                </button>
+            </td>
+            <td>
+
+                <router-link
+                    :to="'/products/' + product.id"
+                    class="badge btnEdit"
+                >Edit</router-link
+                >
+            </td>
+
+
+
+
             </tbody>
         </tr>
     </table>
@@ -97,95 +230,10 @@
         {{ currentProduct.published ? 'Published' : 'Pending' }}
       </div>
 
-      <router-link
-        :to="'/products/' + currentProduct.id"
-        class="badge badge-warning"
-        >Edit</router-link
-      >
     </div>
   </div>
 
-  <!-- Features -->
 
-  <section id="features" style="border-radius: 10%">
-    <div class="row">
-      <div class="col-lg-3 col-md-12 feature-1">
-        <img class="produs" src="../assets/p2c.png" />
-
-        <br /><br /><br />
-        <h3>Dior Addict</h3>
-        <p>
-          Primul balsam de buze Dior cu o formula bazata pe 97% ingrediente** de
-          origine naturala care amplifica discret culoarea naturala a buzelor cu
-          o stralucire personalizata timp de 6 ore*** si hidrateaza buzele timp
-          de 24 de ore*.
-        </p>
-        <p>🖤🖤🖤🖤🖤(5/5)</p>
-        <p>120 lei</p>
-        <a href=""
-          ><i class="fa-solid fa-heart fa-xl" style="color: #f382d5"></i
-        ></a>
-        <a href=""
-          ><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5"></i
-        ></a>
-      </div>
-      <div class="col-lg-3 col-md-12 feature-2">
-        <img class="produs1" src="../assets/p3c.png" />
-        <h3>Dior Pencil</h3>
-        <p>
-          CE ESTE: Efectul de finisaj impecabil devine acum realitate cu acest
-          contur de buze incredibil de ușor de aplicat.CE FACE: Alunecă cu mare
-          ușurință, iar linia sa plină acoperă perfect buzele, mărindu-le
-          volumul.
-        </p>
-        <br />
-        <p>🖤🖤🖤🖤🖤(5/5)</p>
-        <p>90 lei</p>
-        <a href=""
-          ><i class="fa-solid fa-heart fa-xl" style="color: #f382d5"></i
-        ></a>
-        <a href=""
-          ><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5"></i
-        ></a>
-      </div>
-      <div class="col-lg-3 col-md-12 feature-3">
-        <img class="produs2" src="../assets/p4c.png" /> <br /><br />
-        <h3>Dior Blush</h3>
-        <p>
-          Rosy Glow universal blush este arma secreta a echipei de makeup
-          artists Dior pentru crearea unui aspect de obraji imbujorati natural
-          si a unui efect luminos proaspat.Confera obrajilor un efect
-          personalizat de imbujorare.
-        </p>
-        <p>🖤🖤🖤🖤🖤(5/5)</p>
-        <p>170 lei</p>
-        <a href=""
-          ><i class="fa-solid fa-heart fa-xl" style="color: #f382d5"></i
-        ></a>
-        <a href=""
-          ><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5"></i
-        ></a>
-      </div>
-      <div class="col-lg-3 col-md-12 feature-3">
-        <img class="produs3" src="../assets/p5c.png" />
-        <h3>Dior Bronzer</h3>
-        <p>
-          Pudra Dior Forever Natural Bronze recreeaza dintr-o singura miscare
-          mangaierea soarelui pe piele, pentru un ten luminos, care radiaza de
-          vitalitate.Delicata si ultralejera, textura pudrei bronzante
-          fuzioneaza impecabil.
-        </p>
-        <p>🖤🖤🖤🖤🖤(5/5)</p>
-        <p>190 lei</p>
-        <a href=""
-          ><i class="fa-solid fa-heart fa-xl" style="color: #f382d5"></i
-        ></a>
-        <a href=""
-          ><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5"></i
-        ></a>
-      </div>
-    </div>
-  </section>
 </template>
 
 <script lang="ts">
@@ -226,6 +274,15 @@ export default defineComponent({
       this.currentProduct = product;
       this.currentIndex = index;
     },
+      deleteProduct(id:any) {
+          ProductDataService.delete(id)
+              .then((response: ResponseData) => {
+                  console.log(response);
+              })
+              .catch((e: Error) => {
+                  console.log(e);
+              });
+      },
 
     removeAllProducts() {
       ProductDataService.deleteAll()
@@ -263,7 +320,7 @@ export default defineComponent({
   margin: auto;
 }
 .products-table{
-    border: 2px solid #fde9ea;
+    border: 2px solid #fadadb;
 }
 .tablee th,
 .tablee td {
@@ -272,16 +329,16 @@ export default defineComponent({
 .tablee{
     margin-left: auto;
     margin-right: auto;
+
 }
 .details{
     margin-left: auto;
     margin-right: auto;
 }
 #features {
-  padding: 5% 11%;
-  background-color: #fce7ec;
-  position: relative;
-  z-index: 1;
+
+  background-color: #fde9ea;
+
 }
 .feature-1 {
   text-align: center;
@@ -318,5 +375,12 @@ export default defineComponent({
   padding-top: 45%;
   padding-bottom: 7%;
 }
-
+.btnDelete{
+    background-color: pink;
+}
+.btnEdit{
+    background-color: deeppink;
+    font-size: 15px;
+    color: #000000;
+}
 </style>
