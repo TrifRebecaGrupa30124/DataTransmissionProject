@@ -13,33 +13,66 @@
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <input
-          type="text"
+        <textarea
           class="form-control"
           id="description"
-          v-model="currentProduct.description"
-        />
+          v-model="currentProduct.description"></textarea>
+
       </div>
+        <div class="form-group">
+            <label for="price">Price</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="price"
+                    v-model="currentProduct.price"
+            />
+
+        </div>
+
+        <div class="form-group">
+            <label for="discount">Discount</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="discount"
+                    v-model="currentProduct.discount"
+            />
+
+        </div>
+
+        <div class="form-group">
+            <label for="newPrice">New Price</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="newPrice"
+                    v-model="currentProduct.newPrice"
+            />
+
+        </div>
 
       <div class="form-group">
         <label><strong>Status:</strong></label>
-        {{ currentProduct.published ? "Published" : "Pending" }}
+<!--        {{ currentProduct.published ? "Published" : "Pending" }}-->
+          {{ currentProduct.ProductAvailable ? "Available" : "Not available" }}
+
       </div>
     </form>
 
     <button
       class="badge badge-primary mr-2"
-      v-if="currentProduct.published"
+      v-if="currentProduct.ProductAvailable"
       @click="updatePublished(false)"
     >
-      UnPublish
+      UnAvailable
     </button>
     <button
       v-else
       class="badge badge-primary mr-2"
       @click="updatePublished(true)"
     >
-      Publish
+      Available
     </button>
 
     <button class="badge badge-danger mr-2" @click="deleteProduct">
@@ -90,12 +123,20 @@ export default defineComponent({
         title: this.currentProduct.title,
         description: this.currentProduct.description,
         published: status,
+        price: this.currentProduct.price,
+          producer: this.currentProduct.producer,
+          brand: this.currentProduct.brand,
+          ProductAvailable: status,
+          UnitInStock: this.currentProduct.UnitInStock,
+          unitWeight: this.currentProduct.unitWeight,
+          summary: this.currentProduct.summary,
+          shop: this.currentProduct.shop,
       };
 
       ProductDataService.update(this.currentProduct.id, data)
         .then((response: ResponseData) => {
           console.log(response.data);
-          this.currentProduct.published = status;
+          this.currentProduct.ProductAvailable = status;
           this.message = "The status was updated successfully!";
         })
         .catch((e: Error) => {
@@ -136,5 +177,8 @@ export default defineComponent({
 .edit-form {
   max-width: 300px;
   margin: auto;
+}
+#description{
+
 }
 </style>

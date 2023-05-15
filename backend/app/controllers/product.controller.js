@@ -16,7 +16,15 @@ exports.create = (req, res) => {
   const product = {
     title: req.body.title,
     description: req.body.description,
-    published: req.body.published ? req.body.published : false
+    published: req.body.published ? req.body.published : false,
+    price: req.body.price,
+    producer: req.body.producer,
+    brand: req.body.brand,
+    ProductAvailable: req.body.ProductAvailable ? req.body.ProductAvailable : false,
+    UnitInStock: req.body.UnitInStock,
+    unitWeight: req.body.unitWeight,
+    summary: req.body.summary,
+    shop: req.body.shop
   };
 
   // Save Tutorial in the database

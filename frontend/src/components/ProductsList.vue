@@ -19,9 +19,9 @@
             </button>
         </div>
     </div>
-
-  <h4 style="text-align: center">Products List</h4>
-
+<br>
+  <h4 style="text-align: center">Product List</h4>
+<br>
   <!-- Features -->
 
     <section id="features" style="background-color: #fde9ea">
@@ -31,12 +31,7 @@
 
                 <br /><br /><br />
                 <h3>Dior Addict</h3>
-                <p>
-                    Primul balsam de buze Dior cu o formula bazata pe 97% ingrediente** de
-                    origine naturala care amplifica discret culoarea naturala a buzelor cu
-                    o stralucire personalizata timp de 6 ore*** si hidrateaza buzele timp
-                    de 24 de ore*.
-                </p>
+
                 <p>🖤🖤🖤🖤🖤(5/5)</p>
                 <p>120 lei</p>
                 <a href=""
@@ -49,13 +44,8 @@
             <div class="col-lg-3 col-md-12 feature-2">
                 <img class="produs1" src="../assets/p3c.png" />
                 <h3>Dior Pencil</h3>
-                <p>
-                    CE ESTE: Efectul de finisaj impecabil devine acum realitate cu acest
-                    contur de buze incredibil de ușor de aplicat.CE FACE: Alunecă cu mare
-                    ușurință, iar linia sa plină acoperă perfect buzele, mărindu-le
-                    volumul.
-                </p>
-                <br />
+
+
                 <p>🖤🖤🖤🖤🖤(5/5)</p>
                 <p>90 lei</p>
                 <a href=""
@@ -68,12 +58,7 @@
             <div class="col-lg-3 col-md-12 feature-3">
                 <img class="produs2" src="../assets/p4c.png" /> <br /><br />
                 <h3>Dior Blush</h3>
-                <p>
-                    Rosy Glow universal blush este arma secreta a echipei de makeup
-                    artists Dior pentru crearea unui aspect de obraji imbujorati natural
-                    si a unui efect luminos proaspat.Confera obrajilor un efect
-                    personalizat de imbujorare.
-                </p>
+
                 <p>🖤🖤🖤🖤🖤(5/5)</p>
                 <p>170 lei</p>
                 <a href=""
@@ -86,12 +71,7 @@
             <div class="col-lg-3 col-md-12 feature-3">
                 <img class="produs3" src="../assets/p5c.png" />
                 <h3>Dior Bronzer</h3>
-                <p>
-                    Pudra Dior Forever Natural Bronze recreeaza dintr-o singura miscare
-                    mangaierea soarelui pe piele, pentru un ten luminos, care radiaza de
-                    vitalitate.Delicata si ultralejera, textura pudrei bronzante
-                    fuzioneaza impecabil.
-                </p>
+
                 <p>🖤🖤🖤🖤🖤(5/5)</p>
                 <p>190 lei</p>
                 <a href=""
@@ -102,6 +82,44 @@
                 ></a>
             </div>
         </div>
+    </section>
+    <section id="features">
+        <div class="row">
+            <div class="col-lg-3 col-md-12 feature-1"><img class="produs4" src="../assets/p10c.png" alt="">
+                <br><br><br>
+                <h3>Dior Mascara</h3>
+
+                <p>🖤🖤🖤🖤🖤(5/5)</p>
+                <p>120 lei</p>
+                <a href=""><i class="fa-solid fa-heart fa-xl" style="color: #f382d5;"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5;"></i></a>
+            </div>
+            <div class="col-lg-3 col-md-12 feature-2"><img class="produs5" src="../assets//p11.png" alt="">
+                <h3>Dior Palette</h3>
+
+                <p>🖤🖤🖤🖤🖤(5/5)</p>
+                <p>90 lei</p>
+                <a href=""><i class="fa-solid fa-heart fa-xl" style="color: #f382d5;"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5;"></i></a>
+            </div>
+            <div class="col-lg-3 col-md-12 feature-3"><img class="produs6" src="../assets//p12.png" alt="">
+                <br><br>
+                <h3>Dior Foundation</h3>
+                <p>🖤🖤🖤🖤🖤(5/5)</p>
+                <p>170 lei</p>
+                <a href=""><i class="fa-solid fa-heart fa-xl" style="color: #f382d5;"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5;"></i></a>
+            </div>
+            <div class="col-lg-3 col-md-12 feature-3"><img class="produs7" src="../assets//p13.png" alt="">
+                <h3>Dior Palette</h3>
+
+                <p>🖤🖤🖤🖤🖤(5/5)</p>
+                <p>190 lei</p>
+                <a href=""><i class="fa-solid fa-heart fa-xl" style="color: #f382d5;"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5;"></i></a>
+            </div>
+        </div>
+
     </section>
 
 
@@ -128,7 +146,7 @@
             <th>NewPrice</th>
             <th>Summary</th>
             <th>Shop</th>
-            <th>Description</th>
+<!--            <th>Description</th>-->
 
 
 
@@ -169,9 +187,9 @@
             <td>
                 {{ product.shop }}
             </td>
-            <td>
-                {{ product.description }}
-            </td>
+<!--            <td>-->
+<!--                {{ product.description }}-->
+<!--            </td>-->
             <td>
                 <button class="badge mr-2 btnDelete" @click ="deleteProduct(product.id)" >
                     Delete
@@ -227,7 +245,7 @@
       </div>
       <div>
         <label><strong>Status:</strong></label>
-        {{ currentProduct.published ? 'Published' : 'Pending' }}
+        {{ currentProduct.ProductAvailable ? 'Available' : 'Not Available' }}
       </div>
 
     </div>
@@ -324,7 +342,7 @@ export default defineComponent({
 }
 .tablee th,
 .tablee td {
-    padding: 12px 15px;
+    padding: 12px 18px;
 }
 .tablee{
     margin-left: auto;
@@ -375,6 +393,27 @@ export default defineComponent({
   padding-top: 45%;
   padding-bottom: 7%;
 }
+.produs4 {
+    width: 40%;
+    padding-bottom: 7%;
+}
+
+.produs5 {
+    width: 80%;
+    padding-top: 30%;
+    padding-bottom: 33%;
+}
+
+.produs6 {
+    width: 30%;
+    padding-top: 30%;
+    padding-bottom: 15%;
+}
+.produs7{
+    width: 80%;
+    padding-top: 30%;
+    padding-bottom: 30%;
+}
 .btnDelete{
     background-color: pink;
 }
@@ -383,4 +422,5 @@ export default defineComponent({
     font-size: 15px;
     color: #000000;
 }
+
 </style>
