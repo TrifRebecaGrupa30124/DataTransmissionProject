@@ -61,7 +61,7 @@
     </form>
 
     <button
-      class="badge badge-primary mr-2"
+      class="badge mr-2 btnUnAvailable"
       v-if="currentProduct.ProductAvailable"
       @click="updatePublished(false)"
     >
@@ -69,19 +69,20 @@
     </button>
     <button
       v-else
-      class="badge badge-primary mr-2"
+      class="badge mr-2 btnAvailable"
       @click="updatePublished(true)"
     >
       Available
     </button>
 
-    <button class="badge badge-danger mr-2" @click="deleteProduct">
+    <button class="badge mr-2 btnDelete" @click="deleteProduct">
       Delete
     </button>
 
-    <button type="submit" class="badge badge-success" @click="updateProduct">
+    <button type="submit" class="badge btnUpdate" @click="updateProduct">
       Update
     </button>
+    
     <p>{{ message }}</p>
   </div>
 
@@ -177,6 +178,26 @@ export default defineComponent({
 .edit-form {
   max-width: 300px;
   margin: auto;
+}
+.btnUnAvailable{
+    font-size: 13px;
+    color: deeppink;
+    background-color: pink;
+}
+.btnAvailable{
+    font-size: 13px;
+    color: deeppink;
+    background-color: pink;
+}
+.btnDelete{
+    font-size: 13px;
+    color: deeppink;
+    background-color: pink;
+}
+.btnUpdate{
+    font-size: 13px;
+    color: deeppink;
+    background-color: pink;
 }
 #description{
 
