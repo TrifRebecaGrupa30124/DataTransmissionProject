@@ -24,7 +24,8 @@ exports.create = (req, res) => {
     UnitInStock: req.body.UnitInStock,
     unitWeight: req.body.unitWeight,
     summary: req.body.summary,
-    shop: req.body.shop
+    shop: req.body.shop,
+    name: req.body.name
   };
 
   // Save Tutorial in the database

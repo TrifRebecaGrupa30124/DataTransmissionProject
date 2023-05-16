@@ -14,6 +14,12 @@ const routes: Array<RouteRecordRaw> = [
     name: "customers",
     component: () => import("./components/CustomersList.vue"),
   },
+  {
+    path: "/",
+    alias: "/reviews",
+    name: "reviews",
+    component: () => import("./components/ReviewList.vue"),
+  },
 
   {
     path: "/products/:id",

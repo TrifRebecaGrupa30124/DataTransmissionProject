@@ -24,8 +24,8 @@
 
       </div>
 
-        <div class="price">
-            <label for="color">Price</label>
+        <div class="form-group">
+            <label for="price">Price</label>
             <input
                     class="form-control"
                     id="price"
@@ -35,7 +35,7 @@
             />
         </div>
 
-        <div class="producer">
+        <div class="form-group">
             <label for="producer">Producer</label>
             <input
                     class="form-control"
@@ -46,7 +46,7 @@
             />
         </div>
 
-        <div class="brand">
+        <div class="form-group">
             <label for="brand">Brand</label>
             <input
                     class="form-control"
@@ -57,7 +57,7 @@
             />
         </div>
 
-        <div class="ProductAvailable">
+        <div class="form-group">
             <label for="ProductAvailable">Available(true/false)</label>
             <input
                     class="form-control"
@@ -68,7 +68,7 @@
             />
         </div>
 
-        <div class="UnitInStock">
+        <div class="form-group">
             <label for="UnitInStock">Unit In Stock</label>
             <input
                     class="form-control"
@@ -79,7 +79,7 @@
             />
         </div>
 
-        <div class="unitWeight">
+        <div class="form-group">
             <label for="unitWeight">Unit Weight</label>
             <input
                     class="form-control"
@@ -90,7 +90,7 @@
             />
         </div>
 
-        <div class="summary">
+        <div class="form-group">
             <label for="summary">Summary</label>
             <input
                     class="form-control"
@@ -101,7 +101,7 @@
             />
         </div>
 
-        <div class="shop">
+        <div class="form-group">
             <label for="shop">Shop</label>
             <input
                     class="form-control"
@@ -187,5 +187,8 @@ export default defineComponent({
 .submit-form {
   max-width: 300px;
   margin: auto;
+}
+.form-group{
+    background-color: #fadadb;
 }
 </style>

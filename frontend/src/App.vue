@@ -5,7 +5,7 @@
       </router-link>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
-          <router-link to="/products" class="nav-link" style="font-size: 120%">Makeup Products</router-link>
+          <router-link to="/products" class="nav-link" style="font-size: 120%">Products<font-awesome-icon icon="fa-solid fa-user-secret" /></router-link>
         </li>
           <li class="nav-item">
               <router-link to="/customers" class="nav-link" style="font-size: 120%">Employees</router-link>
@@ -13,6 +13,9 @@
         <li class="nav-item">
           <router-link to="/add" class="nav-link" style="font-size: 120%">Add</router-link>
         </li>
+          <li class="nav-item">
+              <router-link to="/reviews" class="nav-link" style="font-size: 120%; margin-left: 900px">Reviews</router-link>
+          </li>
       </div>
     </nav>
 
@@ -45,6 +48,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+
+
 
 export default defineComponent({
   name: "App",

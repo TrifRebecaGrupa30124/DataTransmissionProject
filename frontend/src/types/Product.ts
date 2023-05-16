@@ -13,4 +13,5 @@ export default interface Product {
   newPrice:null;
   summary:string;
   shop:string;
+  name:string;
 }

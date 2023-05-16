@@ -87,7 +87,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-12 feature-1"><img class="produs4" src="../assets/p10c.png" alt="">
                 <br><br><br>
-                <h3>Dior Mascara</h3>
+                <h3>Dior Black Mascara</h3>
 
                 <p>🖤🖤🖤🖤🖤(5/5)</p>
                 <p>120 lei</p>
@@ -95,7 +95,7 @@
                 <a href=""><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5;"></i></a>
             </div>
             <div class="col-lg-3 col-md-12 feature-2"><img class="produs5" src="../assets//p11.png" alt="">
-                <h3>Dior Palette</h3>
+                <h3>Dior Face Palette</h3>
 
                 <p>🖤🖤🖤🖤🖤(5/5)</p>
                 <p>90 lei</p>
@@ -111,7 +111,7 @@
                 <a href=""><i class="fa-solid fa-cart-shopping fa-xl" style="color: #f382d5;"></i></a>
             </div>
             <div class="col-lg-3 col-md-12 feature-3"><img class="produs7" src="../assets//p13.png" alt="">
-                <h3>Dior Palette</h3>
+                <h3>Dior EyeShadow</h3>
 
                 <p>🖤🖤🖤🖤🖤(5/5)</p>
                 <p>190 lei</p>
@@ -182,7 +182,7 @@
                 {{ product.newPrice }}
             </td>
             <td>
-                {{ product.summary }}
+                {{ product.name }}
             </td>
             <td>
                 {{ product.shop }}

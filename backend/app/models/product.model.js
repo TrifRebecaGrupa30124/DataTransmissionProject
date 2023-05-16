@@ -39,6 +39,9 @@ module.exports = (sequelize, Sequelize) => {
     shop: {
       type: Sequelize.STRING
     },
+    name: {
+      type: Sequelize.STRING
+    },
 
   });
 

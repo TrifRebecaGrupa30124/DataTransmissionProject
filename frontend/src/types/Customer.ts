@@ -6,5 +6,6 @@ export default interface Customer {
     email: string;
     phone: null;
     salary: null;
+    image: string;
 
 }
