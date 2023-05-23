@@ -127,20 +127,22 @@ body {
 }
 
 .slide-2 {
-    background-image: url("https://m.media-amazon.com/images/I/71x0t3B3DvL.jpg");
+    background-image: url("https://cdn.shopify.com/s/files/1/0450/9178/2816/files/Cosmetics_shutterstock_509105518_copy.jpg?v=1598747973");
 
 }
 
 .slide-3 {
-    background-image: url("https://www.zastavki.com/pictures/1024x1024/2013/Girls___Beautyful_Girls_Lilac_makeup_041207_31.jpg");
+    background-image: url("https://img5.goodfon.com/wallpaper/nbig/0/94/makeup-artist-woman-makeup.jpg");
 }
 
 .slide-4 {
-    background-color: #dca;
+    background-image: url("https://cdn.wallpapersafari.com/86/89/blA0EJ.jpg");
+    background-size: 160px;
 }
 
 .slide-5 {
-    background-color: #ffc;
+    background-image: url("https://i.shgcdn.com/448bd0e3-3ea8-40c4-8397-572697abdc25/-/format/auto/-/preview/3000x3000/-/quality/lighter/");
+
 }
 
 .carousel__skip-link {

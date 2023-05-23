@@ -127,7 +127,7 @@
 <br>
     <br>
     <br>
-    <table class="table-row tablee" style="position: relative; margin-left: -130px">
+    <table class="table-row tablee" style="position: relative; margin-left: -120px">
         <tr
             class="products-table"
             :class="{ active: index == currentIndex }"
